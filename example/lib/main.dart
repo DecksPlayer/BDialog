@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            AvatarBDialog(size: 200,marginColor: Colors.green,padding:0 , child: Image.network(
+            AvatarBDialog(size: 200, child: Image.network(
                 'https://picsum.photos/250?image=9'),),
             AvatarBDialog(size: 100, child: Text('Hello')),
             ActionChip(

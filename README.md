@@ -138,7 +138,13 @@ class _MyHomePageState extends State<MyHomePage> {
 |  MarginColor  |                           Set the Background Color                           |     No     |  Color   |
 |    Padding    |  Used to created space between the widget content's and the widget's border  |     No     |  double  |
 
+#### How To Use
+``` Flutter
+//AvatarBDialog without padding
+AvatarBDialog(size: 200, child: Image.network(
+                'https://picsum.photos/250?image=9'),)
 
+```
 
 ``` Flutter
             //Big Dialog
