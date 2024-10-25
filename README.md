@@ -106,11 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 ### How Looks Like
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png =150*175)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png =150*175)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png =150*175)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png =150*175)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png =150x175)
+
+![example1](<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png" width="200" height="100">)
+![example1](<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png" width="200" height="100">)
+![example1](<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png" width="200" height="100">)
+![example1](<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png" width="200" height="100">)
+![example1](<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png" width="200" height="100">)
+
 ## Components
 ### AvatarBDialog
 |   Property    |                                    Action                                    |  Required  |   Type   |
