@@ -1,7 +1,7 @@
 # bdialog
 
-Create Stetics dialogs
-
+Create awesome dialogues with BDialog,
+BDialog is a tiny tool in which you can make dialogs like yes No, or Ok dialog.
 ## Getting Started
 
 With this project you can create beautifully dialogs that show information
