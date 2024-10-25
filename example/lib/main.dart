@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 }, option2: () {
                   Navigator.pop(context);
                 },
-                    customIcon: AvatarBDialog(size: 200,marginColor: Colors.green,padding:15 , child: Image.network(
+                    customIcon: AvatarBDialog(size: 200,color: Colors.green,padding:15 , child: Image.network(
                         'https://picsum.photos/250?image=9'),));
               },
             ),
@@ -156,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 }, option2: () {
                   Navigator.pop(context);
                 },
-                    customIcon: AvatarBDialog(size: 200,marginColor: Colors.green,padding:15 , child: Image.network(
+                    customIcon: AvatarBDialog(size: 200,color: Colors.green,padding:15 , child: Image.network(
                         'https://picsum.photos/250?image=9'),));
               },
             ),

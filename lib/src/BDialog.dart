@@ -46,8 +46,8 @@ class _CustomDialog extends StatelessWidget {
             Align(
               alignment: Alignment.topCenter,
               child: customIcon??
-                  AvatarBDialog(size:iconSize??90,
-                      child:  Icon(getIconByDialog(),size: iconSize??80,color: getIconColor(),), marginColor: Colors.white,padding: 0,)
+                  AvatarBDialog(size:iconSize??90, color: Colors.white,padding: 0,
+                      child:  Icon(getIconByDialog(),size: iconSize??80,color: getIconColor(),),)
             ),
           ]),
           Flexible(

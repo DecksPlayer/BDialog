@@ -139,14 +139,29 @@ class _MyHomePageState extends State<MyHomePage> {
 |    Padding    |  Used to created space between the widget content's and the widget's border  |     No     |  double  |
 
 #### How To Use
+* AvatarBDialog without Padding and Color
 ``` Flutter
 //AvatarBDialog without padding
 AvatarBDialog(size: 200, child: Image.network(
                 'https://picsum.photos/250?image=9'),)
 
 ```
-
+* AvatarBDialog with Padding and Color
 ``` Flutter
+      AvatarBDialog(size: 200,color: Colors.green,padding:15 , child: Image.network(
+                        'https://picsum.photos/250?image=9')      
+```
+* AvatarBDialog with Padding
+``` Flutter
+      AvatarBDialog(size: 200,padding:15 , child: Image.network(
+                        'https://picsum.photos/250?image=9')      
+```
+* AvatarBDialog with  Color
+``` Flutter
+      AvatarBDialog(size: 200,color: Colors.green, child: Image.network(
+                        'https://picsum.photos/250?image=9')      
+```
+
             //Big Dialog
               bDialog().showBigDialog(context, dialogType.info,'Information','That is an Information Dialog',true,Duration(seconds: 3));
             //Medium Dialog
@@ -155,7 +170,6 @@ AvatarBDialog(size: 200, child: Image.network(
               bDialog().showSmallDialog(context, dialogType.message,'Message', 'Can you read this message?',false,Duration(seconds: 3));
            // Tiny Dialog
               bDialog().showTinyDialog(context, dialogType.warning,'Warning', 'Something is wrong',false,Duration(seconds: 3)  );
-            
-```
+
 * **dialogType** Type of Dialog
 * **autoDismiss** Hide Dialog automatically
