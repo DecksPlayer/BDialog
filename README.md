@@ -1,10 +1,10 @@
 # bdialog
 
-create a beautifull message dialogs
+Create Stetics dialogs
 
 ## Getting Started
 
-With this project you can create beautifull dialogs that show information
+With this project you can create beautifully dialogs that show information
 
 ## Example
 ```flutter
@@ -129,8 +129,17 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 ```
+## Custom Component
+### AvatarBDialog
+|   Property    |                                    Action                                    |  Required  |   Type   |
+|:-------------:|:----------------------------------------------------------------------------:|:----------:|:--------:|
+|     Size      |                             set the avatar Size                              |    Yes     |  double  |
+|     Child     |                               Widget content's                               |    Yes     |  Widget  |
+|  MarginColor  |                           Set the Background Color                           |     No     |  Color   |
+|    Padding    |  Used to created space between the widget content's and the widget's border  |     No     |  double  |
 
-How to use
+
+
 ``` Flutter
             //Big Dialog
               bDialog().showBigDialog(context, dialogType.info,'Information','That is an Information Dialog',true,Duration(seconds: 3));

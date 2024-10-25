@@ -93,23 +93,73 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ActionChip(label:Text('Show Informacion'),onPressed: (){
-              bDialog().showBigDialog(context, dialogType.info,'Information','That is an Information Dialog',true,Duration(seconds: 3));
-            },),
-            ActionChip(label:Text('Show Error'),onPressed: (){
-              bDialog().showMediumDialog(context, dialogType.error,'Alert','Something Is Wrong',false,Duration(seconds: 3)
-              );
-            },),
-            ActionChip(label:Text('Show Message'),onPressed: (){
-              bDialog().showSmallDialog(context, dialogType.message,'Message', 'Can you read this message?',false,Duration(seconds: 3)
-              );
-            },),
-            ActionChip(label:Text('Show Warning'),onPressed: (){
-              bDialog().showTinyDialog(context, dialogType.warning,'Warning', 'Something is wrong',false,Duration(seconds: 3)
-              );
-            },),
-
-
+            AvatarBDialog(size: 200,marginColor: Colors.green,padding:0 , child: Image.network(
+                'https://picsum.photos/250?image=9'),),
+            AvatarBDialog(size: 100, child: Text('Hello')),
+            ActionChip(
+              label: Text('Show Informacion'),
+              onPressed: () {
+                bDialog().showBigDialog(
+                    context,
+                    dialogType.info,
+                    'Information',
+                    'That is an Information Dialog',
+                    true,
+                    Duration(seconds: 3));
+              },
+            ),
+            ActionChip(
+              label: Text('Show Error'),
+              onPressed: () {
+                bDialog().showMediumDialog(context, dialogType.error, 'Alert',
+                    'Something Is Wrong', false, Duration(seconds: 3));
+              },
+            ),
+            ActionChip(
+              label: Text('Show Message'),
+              onPressed: () {
+                bDialog().showSmallDialog(
+                    context,
+                    dialogType.message,
+                    'Message',
+                    'Can you read this message?',
+                    false,
+                    Duration(seconds: 3));
+              },
+            ),
+            ActionChip(
+              label: Text('Show Warning'),
+              onPressed: () {
+                bDialog().showTinyDialog(context, dialogType.warning, 'Warning',
+                    'Something is wrong', false, Duration(seconds: 3));
+              },
+            ),
+            ActionChip(
+              label: Text('Show Warning'),
+              onPressed: () {
+                bDialog().showOptionDialog(context, 'Option Dialog',
+                  'Something is wrong  \n That is an example about bDialog \n', dialogSize.medium, option1: () {
+                  Navigator.pop(context);
+                }, option2: () {
+                  Navigator.pop(context);
+                },
+                    customIcon: AvatarBDialog(size: 200,marginColor: Colors.green,padding:15 , child: Image.network(
+                        'https://picsum.photos/250?image=9'),));
+              },
+            ),
+            ActionChip(
+              label: Text('CustomDialog'),
+              onPressed: () {
+                bDialog().showOptionDialog(context, 'Custom Dialog',
+                  'Something is wrong  \n That is an example about bDialog \n', dialogSize.medium, option1: () {
+                  Navigator.pop(context);
+                }, option2: () {
+                  Navigator.pop(context);
+                },
+                    customIcon: AvatarBDialog(size: 200,marginColor: Colors.green,padding:15 , child: Image.network(
+                        'https://picsum.photos/250?image=9'),));
+              },
+            ),
           ],
         ),
       ),
