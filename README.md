@@ -161,15 +161,25 @@ AvatarBDialog(size: 200, child: Image.network(
       AvatarBDialog(size: 200,color: Colors.green, child: Image.network(
                         'https://picsum.photos/250?image=9')      
 ```
+### BDialog
 
-            //Big Dialog
-              bDialog().showBigDialog(context, dialogType.info,'Information','That is an Information Dialog',true,Duration(seconds: 3));
-            //Medium Dialog
-              bDialog().showMediumDialog(context, dialogType.error,'Alert','Something Is Wrong',false,Duration(seconds: 3));
-           // Small Dialog
-              bDialog().showSmallDialog(context, dialogType.message,'Message', 'Can you read this message?',false,Duration(seconds: 3));
-           // Tiny Dialog
-              bDialog().showTinyDialog(context, dialogType.warning,'Warning', 'Something is wrong',false,Duration(seconds: 3)  );
 
-* **dialogType** Type of Dialog
-* **autoDismiss** Hide Dialog automatically
+|    Name     |                       Action                       | Required |    Type    |
+|:-----------:|:--------------------------------------------------:|:--------:|:----------:|
+|    size     | set the dialog  Size         *tiny,min,medium,max* |   Yes    | DialogSize |
+|    type     |           set the type of Dialog      ()           |   Yes    | DialogType |
+|  HideType   |         Set the type of Option Buttons ()          |   Yes    |  HideType  |
+|    title    |                Set The dialog title                |   Yes    |   String   |
+| description |             Set the dialog Description             |   Yes    |   String   |
+|  okAction   |              Customize the Ok Action               |    No    | Function() |
+|  yesAction  |              Customize the Yes Action              |    No    | Function() |
+|  noAction   |              Customize the No Action               |    No    | Function() |
+|   okText    |               Customize the Ok title               |    No    |   String   |
+|   yesText   |              Customize the Yes title               |    No    |   String   |
+|   noText    |               Customize the No title               |    No    |   String   |
+| customIcon  |                 Customize the Icon                 |    No    |   Widget   |
+|  iconSize   |                set The size of Icon                |    No    |   String   |
+
+#### How To Use
+
+

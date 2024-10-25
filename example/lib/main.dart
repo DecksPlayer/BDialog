@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BDialog',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -39,16 +39,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -56,18 +46,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  String description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
   @override
   Widget build(BuildContext context) {
@@ -83,83 +63,55 @@ class _MyHomePageState extends State<MyHomePage> {
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
+            Center(child:
             AvatarBDialog(size: 200, child: Image.network(
-                'https://picsum.photos/250?image=9'),),
-            AvatarBDialog(size: 100, child: Text('Hello')),
-            ActionChip(
-              label: Text('Show Informacion'),
-              onPressed: () {
-                bDialog().showBigDialog(
-                    context,
-                    dialogType.info,
-                    'Information',
-                    'That is an Information Dialog',
-                    true,
-                    Duration(seconds: 3));
-              },
-            ),
-            ActionChip(
-              label: Text('Show Error'),
-              onPressed: () {
-                bDialog().showMediumDialog(context, dialogType.error, 'Alert',
-                    'Something Is Wrong', false, Duration(seconds: 3));
-              },
-            ),
-            ActionChip(
-              label: Text('Show Message'),
-              onPressed: () {
-                bDialog().showSmallDialog(
-                    context,
-                    dialogType.message,
-                    'Message',
-                    'Can you read this message?',
-                    false,
-                    Duration(seconds: 3));
-              },
-            ),
-            ActionChip(
-              label: Text('Show Warning'),
-              onPressed: () {
-                bDialog().showTinyDialog(context, dialogType.warning, 'Warning',
-                    'Something is wrong', false, Duration(seconds: 3));
-              },
-            ),
-            ActionChip(
-              label: Text('Show Warning'),
-              onPressed: () {
-                bDialog().showOptionDialog(context, 'Option Dialog',
-                  'Something is wrong  \n That is an example about bDialog \n', dialogSize.medium, option1: () {
-                  Navigator.pop(context);
-                }, option2: () {
-                  Navigator.pop(context);
-                },
-                    customIcon: AvatarBDialog(size: 200,color: Colors.green,padding:15 , child: Image.network(
-                        'https://picsum.photos/250?image=9'),));
-              },
-            ),
-            ActionChip(
-              label: Text('CustomDialog'),
-              onPressed: () {
-                bDialog().showOptionDialog(context, 'Custom Dialog',
-                  'Something is wrong  \n That is an example about bDialog \n', dialogSize.medium, option1: () {
-                  Navigator.pop(context);
-                }, option2: () {
-                  Navigator.pop(context);
-                },
-                    customIcon: AvatarBDialog(size: 200,color: Colors.green,padding:15 , child: Image.network(
-                        'https://picsum.photos/250?image=9'),));
-              },
-            ),
+                'https://picsum.photos/250?image=9'),)),
+            Center(child:
+            AvatarBDialog(size: 100, child: Text('Hello'))),
+
+            ActionChip(label: Text('Max Size'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Medium Size'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Min Size'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Tiny Size'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Max Size Yes No'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            },),
+            ActionChip(label: Text('Medium Size Yes No'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            },),
+            ActionChip(label: Text('Min Size Yes No'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            },),
+            ActionChip(label: Text('Tiny Size Yes No'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            },),
+            ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
+            },),
+            ActionChip(label: Text('Medium Size AutoHide'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, true,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Min Size AutoHide'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, true,Duration(seconds: 3));
+            },),
+            ActionChip(label: Text('Tiny Size AutoHide'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, true,Duration(seconds: 3));
+            },)
           ],
         ),
       ),
