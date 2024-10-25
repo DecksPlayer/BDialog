@@ -90,7 +90,7 @@ class _CustomDialog extends StatelessWidget {
                       children:hideType==HideType.btnOk?[
                         ActionChip(
                           side: BorderSide.none,
-                          label: Text(yesText!),
+                          label: Text(okText??'Ok'),
                           onPressed: okAction ??()=>Navigator.of(context,rootNavigator: false).pop(),
                           avatar: Icon(Icons.check_circle),
                           color: WidgetStateProperty.resolveWith(
@@ -101,7 +101,7 @@ class _CustomDialog extends StatelessWidget {
                       ]: [
                         ActionChip(
                           side: BorderSide.none,
-                          label: Text(yesText!),
+                          label: Text(yesText??'Yes'),
                           onPressed: yesAction ?? ()=>Navigator.of(context,rootNavigator: false).pop(),
                           avatar: Icon(Icons.check_circle),
                           color: WidgetStateProperty.resolveWith(
@@ -111,7 +111,7 @@ class _CustomDialog extends StatelessWidget {
                         ),
                         ActionChip(
                           side: BorderSide.none,
-                          label: Text(noText!),
+                          label: Text(noText??'No'),
                           onPressed: noAction ?? ()=>Navigator.of(context,rootNavigator: false).pop(),
                           avatar: Icon(Icons.cancel),
                           color: WidgetStateProperty.resolveWith(
@@ -178,8 +178,9 @@ class BDialog {
       Function()? okAction,
        String? yesText,
        String? noText,
-       String? okText, 
-      Widget? customIcon}) {
+       String? okText,
+      Widget? customIcon,
+      double? iconSize}) {
     if (autoDismiss) {
       showDialog(
           context: context,
@@ -196,6 +197,7 @@ class BDialog {
                 yesText: yesText,
                 noText: noText,
                 okText: okText,
+                iconSize: iconSize,
                 customIcon: customIcon,
               )).timeout(timeOut.inSeconds > 0 ? timeOut : Duration(seconds: 3),
           onTimeout: () => Navigator.of(context, rootNavigator: false).pop());
@@ -216,6 +218,7 @@ class BDialog {
                 noText: noText,
                 okText: okText,
                 customIcon: customIcon,
+                iconSize: iconSize,
               ));
     }
   }
