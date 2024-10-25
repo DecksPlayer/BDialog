@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'BDialog'),
     );
   }
 }
@@ -38,16 +38,24 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.teal,
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
+
           children: <Widget>[
             Center(child:
             AvatarBDialog(size: 200, child: Image.network(
                 'https://picsum.photos/250?image=9'),)),
+            Center(child:
+            AvatarBDialog(size: 200, child: Image.network(
+                'https://picsum.photos/250?image=9'),padding: 10,)),
+            Center(child:
+            AvatarBDialog(size: 200, child: Image.network(
+                'https://picsum.photos/250?image=9'),padding: 10,color: Colors.black45,)),
             Center(child:
             AvatarBDialog(size: 100, child: Text('Hello'))),
 
@@ -76,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
               BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
             },),
             ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 30),action: HideType.yesNo);
             },),
             ActionChip(label: Text('Medium Size AutoHide'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, true,Duration(seconds: 3));
