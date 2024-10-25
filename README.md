@@ -106,11 +106,11 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 ### How Looks Like
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png)
-![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png)
+![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png =150*175)
+![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png =150*175)
+![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png =150*175)
+![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png =150*175)
+![example1](https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png =150x175)
 ## Components
 ### AvatarBDialog
 |   Property    |                                    Action                                    |  Required  |   Type   |
@@ -165,39 +165,44 @@ AvatarBDialog(size: 200, child: Image.network(
 #### How To Use
 
 * Normal Dialog With Max Size
+
 ``` Flutter
      ActionChip(label: Text('Max Size'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),   
 ```
 * Normal Dialog With Medium Size
+
 ``` Flutter
      ActionChip(label: Text('Medium Size'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),
 ```
 * Normal Dialog With Minimum Size
+
 ``` Flutter
          ActionChip(label: Text('Min Size'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),
 ```
 * Normal Dialog With tiny Size
+
 ``` Flutter
        ActionChip(label: Text('Tiny Size'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),
 ```          
- * Auto Hide Example           
+ * Auto Hide Example  
+
  ``` Flutter
      ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
             },),
 ```     
 * Yes No Example
+
   ``` Flutter
    ActionChip(label: Text('Max Size Yes No'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
             },),
-```    
-            
+```
