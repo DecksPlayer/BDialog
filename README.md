@@ -107,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
 ```
 ### How Looks Like
 
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png" width="235" height="350">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png" width="235" height="350">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png" width="235" height="350">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png" width="235" height="350">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png" width="235" height="350">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png" width="250" height="445">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png" width="250" height="445">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png" width="250" height="445">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png" width="250" height="445">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png" width="250" height="445">
 
 ## Components
 ### AvatarBDialog
