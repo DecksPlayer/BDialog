@@ -5,3 +5,7 @@
 * Improvement functionalities
 ## 0.0.3
 * bug fixed
+## 0.0.4
+* Improvement the documentation
+## 0.0.5
+* Improvement the documentation

@@ -107,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
 ```
 ### How Looks Like
 
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png" width="250" height="445">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png" width="250" height="445">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png" width="250" height="445">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png" width="250" height="445">
-<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png" width="250" height="445">
+<img src="">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/2.png" width="200" height="100">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png" width="200" height="100">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png" width="200" height="100">
+<img src="https://github.com/DecksPlayer/BDialog/blob/master/assets/5.png" width="200" height="100">
 
 ## Components
 ### AvatarBDialog
@@ -173,6 +173,10 @@ AvatarBDialog(size: 200, child: Image.network(
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),   
 ```
+
+![Maximun Size](https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png)
+
+
 * Normal Dialog With Medium Size
 
 ``` Flutter
@@ -193,7 +197,9 @@ AvatarBDialog(size: 200, child: Image.network(
        ActionChip(label: Text('Tiny Size'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
             },),
-```          
+```     
+![Tiny Size](https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png)
+
  * Auto Hide Example  
 
  ``` Flutter
@@ -201,10 +207,13 @@ AvatarBDialog(size: 200, child: Image.network(
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
             },),
 ```     
+
+
 * Yes No Example
 
   ``` Flutter
    ActionChip(label: Text('Max Size Yes No'),onPressed: (){
               BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
             },),
-```
+  ```
+  ![Yes No](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png)
