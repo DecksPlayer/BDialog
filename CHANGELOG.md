@@ -9,3 +9,5 @@
 * Improvement the documentation
 ## 0.0.5
 * Improvement the documentation
+* ## 0.0.6
+* Improvement the documentation
