@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 enum DialogType { message, info, error, warning }
 
-enum HideType { none, btnOk, yesNo}
+enum HideType { none, btnOk, twoActionsButton}
 
 enum DialogSize { tiny, min, medium, max }
 
 class _CustomDialog extends StatelessWidget {
   final DialogType type;
   final DialogSize size;
-  final HideType hideType;
+  final HideType? hideType;
   final String title;
   final String description;
   final Widget? body;
@@ -22,13 +22,17 @@ class _CustomDialog extends StatelessWidget {
   final String? noText;
   final Widget? customIcon;
   final double? iconSize;
+  final IconData? option1Icon;
+  final IconData? option2Icon;
+  final Color? option1Color;
+  final Color? option2Color;
 
   const _CustomDialog(
       {required this.type,
       required this.size,
       required this.title,
       required this.description,
-      required this.hideType,
+        this.hideType= HideType.btnOk,
       this.body,
       this.okAction,
       this.yesAction,
@@ -37,7 +41,13 @@ class _CustomDialog extends StatelessWidget {
       this.yesText = 'yes',
       this.noText = 'no',
       this.customIcon,
-      this.iconSize});
+      this.iconSize,
+        this.option1Icon= Icons.check_circle
+        , this.option2Icon= Icons.cancel,
+        this.option1Color= Colors.green,
+        this.option2Color = Colors.red
+
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +91,7 @@ class _CustomDialog extends StatelessWidget {
                   ),
                 ]))),
             Visibility(
-                visible: (hideType == HideType.yesNo||hideType == HideType.btnOk),
+                visible: (hideType == HideType.twoActionsButton||hideType == HideType.btnOk),
                 child: Expanded(
                     flex: 1,
                     child: Row(
@@ -103,9 +113,9 @@ class _CustomDialog extends StatelessWidget {
                           side: BorderSide.none,
                           label: Text(yesText??'Yes'),
                           onPressed: yesAction ?? ()=>Navigator.of(context,rootNavigator: false).pop(),
-                          avatar: Icon(Icons.check_circle),
+                          avatar: Icon(option1Icon),
                           color: WidgetStateProperty.resolveWith(
-                              (v0) => Colors.green),
+                              (v0) => option1Color),
                           labelStyle: TextStyle(color: Colors.white),
                           iconTheme: IconThemeData(color: Colors.white),
                         ),
@@ -113,9 +123,9 @@ class _CustomDialog extends StatelessWidget {
                           side: BorderSide.none,
                           label: Text(noText??'No'),
                           onPressed: noAction ?? ()=>Navigator.of(context,rootNavigator: false).pop(),
-                          avatar: Icon(Icons.cancel),
+                          avatar: Icon(option2Icon),
                           color: WidgetStateProperty.resolveWith(
-                              (v0) => Colors.red),
+                              (v0) => option2Color),
                           labelStyle: TextStyle(color: Colors.white),
                           iconTheme: IconThemeData(color: Colors.white),
                         )
@@ -171,17 +181,24 @@ class _CustomDialog extends StatelessWidget {
 
 class BDialog {
   showBDialog(BuildContext context, DialogType typed, DialogSize size,
-      String title, String description, bool autoDismiss, Duration timeOut,
-      {HideType? action,
-      Function()? yesAction,
-      Function()? noAction,
+      String title, String description,
+      {
+        Duration? timeOut,
+        HideType? action,
+      Function()? option1Action,
+      Function()? option2Action,
       Function()? okAction,
-       String? yesText,
-       String? noText,
+       String? option1Text,
+       String? option2Text,
        String? okText,
       Widget? customIcon,
-      double? iconSize}) {
-    if (autoDismiss) {
+      double? iconSize,
+      IconData? icon1Option,
+      IconData? icon2Option,
+        Color? option1Color,
+        Color? option2Color,
+      }) {
+    if (timeOut!=null) {
       showDialog(
           context: context,
           builder: (context) => _CustomDialog(
@@ -191,34 +208,34 @@ class BDialog {
                 title: title,
                 description: description,
                 body: null,
-                yesAction: yesAction,
-                noAction: noAction,
                 okAction: okAction,
-                yesText: yesText,
-                noText: noText,
                 okText: okText,
                 iconSize: iconSize,
                 customIcon: customIcon,
-              )).timeout(timeOut.inSeconds > 0 ? timeOut : Duration(seconds: 3),
+              )).timeout(timeOut.inMicroseconds>0?timeOut : Duration(seconds: 3),
           onTimeout: () => Navigator.of(context, rootNavigator: false).pop());
     } else {
       showDialog(
           context: context,
           builder: (context) => _CustomDialog(
                 type: typed,
-                hideType: action ?? HideType.btnOk,
+                hideType: action,
                 size: size,
                 title: title,
                 description: description,
                 body: null,
-                yesAction: yesAction,
-                noAction: noAction,
+                yesAction: option1Action,
+                noAction: option2Action,
                 okAction: okAction,
-                yesText: yesText,
-                noText: noText,
+                yesText: option1Text,
+                noText: option2Text,
                 okText: okText,
                 customIcon: customIcon,
                 iconSize: iconSize,
+                option1Icon: icon1Option ??Icons.check_circle,
+                option2Icon: icon2Option?? Icons.cancel,
+                option1Color: option1Color??Colors.green,
+                option2Color: option2Color??Colors.red,
               ));
     }
   }

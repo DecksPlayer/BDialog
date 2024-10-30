@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'BDialog'),
     );
   }
 }
@@ -49,54 +49,62 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.teal,
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
+
           children: <Widget>[
             Center(child:
             AvatarBDialog(size: 200, child: Image.network(
                 'https://picsum.photos/250?image=9'),)),
             Center(child:
+            AvatarBDialog(size: 200, child: Image.network(
+                'https://picsum.photos/250?image=9'),padding: 10,)),
+            Center(child:
+            AvatarBDialog(size: 200, child: Image.network(
+                'https://picsum.photos/250?image=9'),padding: 10,color: Colors.black45,)),
+            Center(child:
             AvatarBDialog(size: 100, child: Text('Hello'))),
 
             ActionChip(label: Text('Max Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description,);
             },),
             ActionChip(label: Text('Medium Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, );
             },),
             ActionChip(label: Text('Min Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description,);
             },),
             ActionChip(label: Text('Tiny Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description,);
             },),
             ActionChip(label: Text('Max Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, action: HideType.twoActionsButton);
             },),
             ActionChip(label: Text('Medium Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
             ActionChip(label: Text('Min Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
             ActionChip(label: Text('Tiny Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
             ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, timeOut: Duration(seconds: 30));
             },),
             ActionChip(label: Text('Medium Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description,timeOut: Duration(seconds: 3));
             },),
             ActionChip(label: Text('Min Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, timeOut: Duration(seconds: 3));
             },),
             ActionChip(label: Text('Tiny Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, timeOut: Duration(seconds: 3));
             },)
           ],
         ),
@@ -105,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
 ```
 
 ## Components
@@ -142,30 +151,33 @@ AvatarBDialog(size: 200, child: Image.network(
 ### BDialog
 
 
-|    Name     |                                    Action                                    | Required |    Type    |
-|:-----------:|:----------------------------------------------------------------------------:|:--------:|:----------:|
-|    size     |                set the dialog  Size (**tiny,min,medium,max**)                |   Yes    | DialogSize |
-|    type     |         set the type of Dialog      (**message,info,error,warning**)         |   Yes    | DialogType |
-|  HideType   |            Set the type of Option Buttons (**none,btnOk,yesNo**)             |   Yes    |  HideType  |
-|    title    |                             Set The dialog title                             |   Yes    |   String   |
-| description |                          Set the dialog Description                          |   Yes    |   String   |
-|  okAction   |                           Customize the Ok Action                            |    No    | Function() |
-|  yesAction  |                           Customize the Yes Action                           |    No    | Function() |
-|  noAction   |                           Customize the No Action                            |    No    | Function() |
-|   okText    |                            Customize the Ok title                            |    No    |   String   |
-|   yesText   |                           Customize the Yes title                            |    No    |   String   |
-|   noText    |                            Customize the No title                            |    No    |   String   |
-| customIcon  |                              Customize the Icon                              |    No    |   Widget   |
-|  iconSize   |                             set The size of Icon                             |    No    |   String   |
+|     Name      |                               Action                                | Required |    Type    |
+|:-------------:|:-------------------------------------------------------------------:|:--------:|:----------:|
+|     size      |           set the dialog  Size (**tiny,min,medium,max**)            |   Yes    | DialogSize |
+|     type      |    set the type of Dialog      (**message,info,error,warning**)     |   Yes    | DialogType |
+|   HideType    |        Set the type of Option Buttons (**none,btnOk,yesNo**)        |    No     |  HideType  |
+|    timeOut    | Create Dialog that's dismiss automatically when the timeout happens |    No     |  Duration  |
+|     title     |                        Set The dialog title                         |   Yes    |   String   |
+|  description  |                     Set the dialog Description                      |   Yes    |   String   |
+|   okAction    |                       Customize the Ok Action                       |    No    | Function() |
+| option1Action |         Change Default option 1 action with a custom Action         |    No    | Function() |
+| option2Action |         Change Default option 2 action with a custom Action         |    No    | Function() |
+|    okText     |                       Customize the Ok title                        |    No    |   String   |
+|  option1Text  |                Customize the text of action button 1                |    No    |   String   |
+|  option2Text  |                Customize the text of action button 2                |    No    |   String   |
+|  customIcon   |                         Customize the Icon                          |    No    |   Widget   |
+|   iconSize    |                        set The size of Icon                         |    No    |   String   |
+|  option1Icon  |           Change Default option 1 icon with a custom Icon           |    No    |  IconData  |
+|  option2Icon  |           Change Default option 2 icon with a custom Icon           |    No    |  IconData  |
+| option1Color  |          Change Default option 1 Color with a custom Color          |    No    |   Color    |
+| option2Color  |          Change Default option 1 Color with a custom Color          |    No    |   Color    |
 
 #### How To Use
 
 * Normal Dialog With Max Size
 
 ``` Flutter
-     ActionChip(label: Text('Max Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
-            },),   
+  BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description,); 
 ```
 
 ![Maximun Size](https://github.com/DecksPlayer/BDialog/blob/master/assets/3.png)
@@ -174,40 +186,35 @@ AvatarBDialog(size: 200, child: Image.network(
 * Normal Dialog With Medium Size
 
 ``` Flutter
-     ActionChip(label: Text('Medium Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3));
-            },),
+  BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, );
+
 ```
 * Normal Dialog With Minimum Size
 
 ``` Flutter
-         ActionChip(label: Text('Min Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3));
-            },),
+ BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description,);
+
 ```
 * Normal Dialog With tiny Size
 
 ``` Flutter
-       ActionChip(label: Text('Tiny Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
-            },),
+ BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description,);
+
 ```     
 ![Tiny Size](https://github.com/DecksPlayer/BDialog/blob/master/assets/4.png)
 
  * Auto Hide Example  
 
  ``` Flutter
-     ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 3),action: HideType.yesNo);
-            },),
+   BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, timeOut: Duration(seconds: 30));
+
 ```     
 
 
-* Yes No Example
+* Two Options Example
 
   ``` Flutter
-   ActionChip(label: Text('Max Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
-            },),
+   BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, action: HideType.twoActionsButton);
+
   ```
-  ![Yes No](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png)
+  ![Two Options](https://github.com/DecksPlayer/BDialog/blob/master/assets/1.png)

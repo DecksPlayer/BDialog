@@ -60,40 +60,40 @@ class _MyHomePageState extends State<MyHomePage> {
             AvatarBDialog(size: 100, child: Text('Hello'))),
 
             ActionChip(label: Text('Max Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description,);
             },),
             ActionChip(label: Text('Medium Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, );
             },),
             ActionChip(label: Text('Min Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description,);
             },),
             ActionChip(label: Text('Tiny Size'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description,);
             },),
-            ActionChip(label: Text('Max Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            ActionChip(label: Text('Max Size Two Options Dialog'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, action: HideType.twoActionsButton);
             },),
-            ActionChip(label: Text('Medium Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            ActionChip(label: Text('Medium Size Two Options Dialog'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
-            ActionChip(label: Text('Min Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            ActionChip(label: Text('Min Size Two Options Dialog '),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
-            ActionChip(label: Text('Tiny Size Yes No'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, false,Duration(seconds: 3),action: HideType.yesNo);
+            ActionChip(label: Text('Tiny Size Two Options Dialog'),onPressed: (){
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description,action: HideType.twoActionsButton);
             },),
             ActionChip(label: Text('Max Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, true,Duration(seconds: 30),action: HideType.yesNo);
+              BDialog().showBDialog(context, DialogType.info,DialogSize.max,'Welcome To BDialog', description, timeOut: Duration(seconds: 30));
             },),
             ActionChip(label: Text('Medium Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.medium,'Welcome To BDialog', description,timeOut: Duration(seconds: 3));
             },),
             ActionChip(label: Text('Min Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.min,'Welcome To BDialog', description, timeOut: Duration(seconds: 3));
             },),
             ActionChip(label: Text('Tiny Size AutoHide'),onPressed: (){
-              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, true,Duration(seconds: 3));
+              BDialog().showBDialog(context, DialogType.info,DialogSize.tiny,'Welcome To BDialog', description, timeOut: Duration(seconds: 3));
             },)
           ],
         ),
